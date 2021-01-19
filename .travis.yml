@@ -16,4 +16,4 @@ env:
   - SDL_AUDIODRIVER=dummy
 
 # Run the tests
-script: script: ./renpy.sh "../4US/" lint && ./renpy.sh launcher distribute "../4US/"
+script: ./renpy.sh "../4US/" lint && ./renpy.sh launcher distribute "../4US/"
