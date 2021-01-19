@@ -1,27 +1,17 @@
-{
-  "language": "python",
-  "os": [
-    "windows"
-  ],
-  "dist": "xenial",
-  "python": [
-    "2.7"
-  ],
-  "install": [
-    "cd ..",
-    "wget http://www.renpy.org/dl/6.99.12/renpy-6.99.12-sdk.tar.bz2",
-    "tar xf renpy-6.99.12-sdk.tar.bz2",
-    "rm renpy-6.99.12-sdk.tar.bz2",
-    "cd renpy-6.99.12-sdk"
-  ],
-  "env": {
-    "jobs": [
-      {
-        "SDL_AUDIODRIVER": "dummy"
-      }
-    ]
-  },
-  "script": [
-    "./renpy.sh \"../4US/\" lint && ./renpy.sh launcher distribute \"../4US/\""
-  ]
-}
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"      # current default Python on Travis CI
+  - "3.7"
+  - "3.8"
+  - "3.9"
+  - "3.9-dev"  # 3.9 development branch
+  - "nightly"  # nightly build
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+# command to run tests
+script:
+  - pytest
